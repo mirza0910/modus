@@ -17,9 +17,10 @@
                 <h1 class="mt-3">Haloo!!!</h1>
                 <img src="https://i.pinimg.com/originals/a1/8a/44/a18a4416bb6cbd54fe4a6ba4cd84f4d9.gif" alt="Love">
 
-                <h2 class="">.....Text.....</h2>
-                <button class="btn btn-success" id="btnMau" onclick='alert("text!!!")' style="padding-left: 21px; padding-right: 20px; margin-left: -70px;">Mau</button>
-                <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick='gamau(1000)'>Gamau</button>
+                <h2 class="mb-3">.....Text.....</h2>
+                <button class="btn btn-success" id="btnMau" style="padding-left: 21px; padding-right: 20px; margin-left: -70px;">Mau</button>
+                <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick="countDown([200, 500, 300, 100, 400])">Gamau</button>
+                <div class="d-none" id="text">website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. <span id="time">5</span> detik</div>
             </div>
         </div>
     </div>
@@ -28,16 +29,41 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
-        function gamau(pola){
-            var mau = document.getElementById('btnMau');
-            // var i = Math.floor(Math.random()*300)+1;
-            // var j = Math.floor(Math.random()*100)+mau.offsetTop;
-            // id.style.left = i+'px';
-            // id.style.top = j+'px';
-            var getaran = window.navigator.vibrate(pola);
-            console.log(getaran);
+        // function gamau(pola){
+        //   var mau = document.getElementById('btnMau');
+        //   // var i = Math.floor(Math.random()*300)+1;
+        //   // var j = Math.floor(Math.random()*100)+mau.offsetTop;
+        //   // id.style.left = i+'px';
+        //   // id.style.top = j+'px';
+        // }
+        var timer;
+        var text = document.getElementById("text");
+
+        function countDown(i, callback) {
+            //callback = callback || function(){};
+            timer = setInterval(function() {
+                text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. proses kirim virus: " + i + " detik";
+                i-- || (clearInterval(timer), callback());
+            }, 1000);
         }
+
+
+        $("#btnGamau").on("click", function(){
+          text.classList.toggle("d-none");
+            countDown(5, function(pola){
+              var getaran = window.navigator.vibrate(pola);
+              console.log(getaran);
+              text.classList.toggle("d-none");
+            });
+        });
+
+        $("#btnMau").click(function(){
+            clearInterval(timer);
+            alert("text....")
+            text.classList.toggle("d-none");
+        });
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
