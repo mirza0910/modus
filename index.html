@@ -40,10 +40,9 @@
           var waktu = 10;
           var timer = setInterval(function(){
             waktu--;
+            document.getElementById("time").innerHTML = waktu;
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
-            }else{
-              document.getElementById("time").innerHTML = waktu;
             }
           }, 1000);
             mau.addEventListener("click",function(){
