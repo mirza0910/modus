@@ -19,7 +19,7 @@
 
                 <h2 class="mb-3">.....Text.....</h2>
                 <button class="btn btn-success" id="btnMau" style="padding-left: 21px; padding-right: 20px; margin-left: -70px;">Mau</button>
-                <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick="countDown(1000)">Gamau</button>
+                <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick="gamau(1000)">Gamau</button>
                 <div class="d-none" id="text">website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. <span id="time">5</span> detik</div>
             </div>
         </div>
@@ -30,41 +30,57 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-        // function gamau(pola){
-        //   var mau = document.getElementById('btnMau');
-        //   // var i = Math.floor(Math.random()*300)+1;
-        //   // var j = Math.floor(Math.random()*100)+mau.offsetTop;
-        //   // id.style.left = i+'px';
-        //   // id.style.top = j+'px';
-        // }
-        var timer;
-        var text = document.getElementById("text");
-        var gamau = document.getElementById("btnGamau");
-        var mau = document.getElementById("btnMau");
-
-        function countDown(i, callback) {
-            //callback = callback || function(){};
-            timer = setInterval(function() {
-                text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. proses kirim virus: " + i + " detik";
-                i-- || (clearInterval(timer), callback());
-            }, 1000);
-        }
-
-
-        gamau.addEventListener("click", function(){
-          text.classList.toggle("d-none");
-            countDown(5, function countDown(pola){
+        function gamau(pola){
+          var mau = document.getElementById('btnMau');
+          // var i = Math.floor(Math.random()*300)+1;
+          // var j = Math.floor(Math.random()*100)+mau.offsetTop;
+          // id.style.left = i+'px';
+          // id.style.top = j+'px';
+          var text = document.getElementById("text");
+          var waktu = 10;
+          setInterval(function(){
+            waktu--;
+            if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
-              console.log(getaran);
+                console.log(getaran);
+            }else{
+              document.getElementById("time").innerHTML = waktu;
+            }
+          }, 1000);
+            mau.addEventListener("click",function(){
+              // clearInterval(timer);
+              alert("text....")
               text.classList.toggle("d-none");
-            });
-        });
+          });
+        }
+        // var timer;
+        // var text = document.getElementById("text");
+        // var gamau = document.getElementById("btnGamau");
+        // var mau = document.getElementById("btnMau");
 
-        mau.addEventListener("click",function(){
-            clearInterval(timer);
-            alert("text....")
-            text.classList.toggle("d-none");
-        });
+        // function countDown(i, callback) {
+        //     //callback = callback || function(){};
+        //     timer = setInterval(function() {
+        //         text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. proses kirim virus: " + i + " detik";
+        //         i-- || (clearInterval(timer), callback());
+        //     }, 1000);
+        // }
+
+
+        // gamau.addEventListener("click", function(){
+        //   text.classList.toggle("d-none");
+        //     countDown(5, function countDown(pola){
+        //       var getaran = window.navigator.vibrate(pola);
+        //       console.log(getaran);
+        //       text.classList.toggle("d-none");
+        //     });
+        // });
+
+        // mau.addEventListener("click",function(){
+        //     clearInterval(timer);
+        //     alert("text....")
+        //     text.classList.toggle("d-none");
+        // });
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
