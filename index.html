@@ -38,7 +38,7 @@
           // id.style.top = j+'px';
           var text = document.getElementById("text");
           var waktu = 10;
-          setInterval(function(){
+          var timer = setInterval(function(){
             waktu--;
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
@@ -47,7 +47,7 @@
             }
           }, 1000);
             mau.addEventListener("click",function(){
-              clearInterval();
+              clearInterval(timer);
               alert("text....")
               text.classList.toggle("d-none");
           });
