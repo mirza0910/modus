@@ -20,7 +20,7 @@
                 <h2 class="mb-3">.....Text.....</h2>
                 <button class="btn btn-success" id="btnMau" style="padding-left: 21px; padding-right: 20px; margin-left: -70px;">Mau</button>
                 <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick="gamau(1000)">Gamau</button>
-                <div id="text">website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. <span id="time">10</span> detik</div>
+                <div><span id="time">10</span></div>
             </div>
         </div>
     </div>
@@ -36,13 +36,14 @@
           // var j = Math.floor(Math.random()*100)+mau.offsetTop;
           // id.style.left = i+'px';
           // id.style.top = j+'px';
-          var text = document.getElementById("text");
+          var text = document.getElementById("time");
           var waktu = 10;
           var timer = setInterval(function(){
             waktu--;
-            document.getElementById("time").innerHTML = waktu;
+            text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. " + waktu + "detik";
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
+              text.innerHTML = "Perangkat anda telah terinveksi virus";
             }
           }, 1000);
             mau.addEventListener("click",function(){
