@@ -20,7 +20,7 @@
                 <h2 class="mb-3">.....Text.....</h2>
                 <button class="btn btn-success" id="btnMau" style="padding-left: 21px; padding-right: 20px; margin-left: -70px;">Mau</button>
                 <button class="btn btn-danger" id="btnGamau" style="position: absolute;" onclick="gamau(1000)">Gamau</button>
-                <div id="text">website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. <span id="time">5</span> detik</div>
+                <div id="text">website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. <span id="time">10</span> detik</div>
             </div>
         </div>
     </div>
@@ -42,13 +42,12 @@
             waktu--;
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
-                console.log(getaran);
             }else{
               document.getElementById("time").innerHTML = waktu;
             }
           }, 1000);
             mau.addEventListener("click",function(){
-              // clearInterval(timer);
+              clearInterval();
               alert("text....")
               text.classList.toggle("d-none");
           });
