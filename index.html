@@ -43,7 +43,6 @@
             document.getElementById("time").innerHTML = waktu;
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
-              clearInterval(timer);
             }
           }, 1000);
             mau.addEventListener("click",function(){
