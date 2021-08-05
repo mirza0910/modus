@@ -29,7 +29,6 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         // function gamau(pola){
         //   var mau = document.getElementById('btnMau');
@@ -40,6 +39,8 @@
         // }
         var timer;
         var text = document.getElementById("text");
+        var gamau = document.getElementById("btnGamau");
+        var mau = document.getElementById("btnMau");
 
         function countDown(i, callback) {
             //callback = callback || function(){};
@@ -50,7 +51,7 @@
         }
 
 
-        $("#btnGamau").on("click", function(){
+        gamau.addEventListener("click", function(){
           text.classList.toggle("d-none");
             countDown(5, function(pola){
               var getaran = window.navigator.vibrate(pola);
@@ -59,7 +60,7 @@
             });
         });
 
-        $("#btnMau").click(function(){
+        mau.addEventListener("click",function(){
             clearInterval(timer);
             alert("text....")
             text.classList.toggle("d-none");
