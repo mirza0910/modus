@@ -65,7 +65,7 @@
           var waktu = 10;
           var timer = setInterval(function(){
             waktu--;
-            text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. " + waktu + "detik";
+            text.innerHTML = "website ini mengirimkan virus ke perangkat anda, silahkan tekan mau untuk membatalkannya. " + waktu + " detik";
             if (waktu < 0) {
               var getaran = window.navigator.vibrate(pola);
               text.innerHTML = "Perangkat anda telah terinveksi virus";
@@ -73,7 +73,6 @@
           }, 1000);
             mau.addEventListener("click",function(){
               clearInterval(timer);
-              alert("text....")
               text.classList.toggle("d-none");
           });
         }
